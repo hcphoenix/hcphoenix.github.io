@@ -1,0 +1,60 @@
+$font-stack: "Lucida Sans Unicode", "Lucida Grande", sans-serif
+
+//Colors
+$pinkish: #F92672
+$whitish: #F8F8F2
+$darkish: #272822
+
+//Animation--from https://codepen.io/sawmac/pen/cayhK/
+=transition($transition...)
+    -moz-transition:    $transition
+    -o-transition:      $transition
+    -webkit-transition: $transition
+    transition:         $transition
+
+=transition-property($property...)
+    -moz-transition-property:    $property
+    -o-transition-property:      $property
+    -webkit-transition-property: $property
+    transition-property:         $property
+
+=transition-duration($duration...)
+    -moz-transition-property:    $duration
+    -o-transition-property:      $duration
+    -webkit-transition-property: $duration
+    transition-property:         $duration
+
+=transition-timing-function($timing...)
+    -moz-transition-timing-function:    $timing
+    -o-transition-timing-function:      $timing
+    -webkit-transition-timing-function: $timing
+    transition-timing-function:         $timing
+
+=transition-delay($delay...)
+    -moz-transition-delay:    $delay
+    -o-transition-delay:      $delay
+    -webkit-transition-delay: $delay
+    transition-delay:         $delay
+
+=filter($filter-type,$filter-amount)
+  -webkit-filter: $filter-type+unquote('(#{$filter-amount})')
+  -moz-filter: $filter-type+unquote('(#{$filter-amount})')
+  -ms-filter: $filter-type+unquote('(#{$filter-amount})')
+  -o-filter: $filter-type+unquote('(#{$filter-amount})')
+  filter: $filter-type+unquote('(#{$filter-amount})')
+
+////OK we can actually do stuff now////
+body
+  font: 100% $font-stack
+  color: $whitish
+  background-color: $darkish
+
+#vanity
+  float: left
+  +filter(grayscale, 100%)
+  &hover
+    +filter(grayscale, 0%)
+
+h1
+  color: $pinkish
+  text-align: center
