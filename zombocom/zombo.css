@@ -21,6 +21,13 @@ body {
   background-size: cover;
 }
 
+.banished {
+  width: 0px;
+  height: 0px;
+  transition: width 1s, height 1s, transform 2s;
+  transform:  translate(1000px, 0px) rotate(360deg);
+}
+
 .cookie-consent-banner {
   position: fixed;
   bottom: 0;
