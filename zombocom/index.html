@@ -107,12 +107,14 @@ const amplifyMedia = (mediaElem, multiplier) => {
   return result;
 }
 
-var amp = amplifyMedia(audio, 0.8);
+var amp = {};
 var vol = 0.8;
 
 button.addEventListener("click", () => {
   if (audio.paused) {
     audio.volume = 1.0;
+    amp = amplifyMedia(audio, 0.8);
+    amp.context.resume();
     audio.play();
     muteBtn();
     
@@ -120,6 +122,7 @@ button.addEventListener("click", () => {
     //audio.pause();
     vol += 0.4;
     amp.amplify(vol);
+    amp.context.resume();
     if(btnMuted) {
         unmuteBtn();
     } else {
@@ -136,10 +139,12 @@ button.addEventListener("click", () => {
   cookieBtns.forEach(btn => btn.addEventListener("click", () => {
     banner.classList.add('banished');
    
-    if (audio.paused) {
-      audio.volume = 1.0;
-      audio.play();
-      muteBtn();
+    if (audio.paused) {    
+        amp = amplifyMedia(audio, 0.8);
+        amp.context.resume();
+        audio.volume = 1.0;
+        audio.play();
+        muteBtn();
     }
 
     button.classList.add("fade");
