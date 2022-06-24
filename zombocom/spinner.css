@@ -1,0 +1,122 @@
+.spinner {
+    width: 70px;
+    height: 70px;
+    border: 8px solid lightblue;
+    border-top-color: blue ;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+}
+
+.spinner>div{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+
+.spinner-dual {
+    width: 70px;
+    height: 70px;
+    border: 8px solid transparent;
+    border-top-color: blue;
+    border-bottom-color: blue;
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;  
+}
+
+.spinner-dual>div{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    animation: spin .8s reverse linear infinite;
+}
+
+.spinner-fast {
+    width: 70px;
+    height: 70px;
+    border-top: 5px solid blue;
+    border-right: 5px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite, colorCycle 3s linear infinite;
+}
+
+.spinner-fast>div{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    animation: spin 3s linear infinite;
+}
+
+.spinner-triple {
+    width: 70px;
+    height: 70px;
+    border: 5px solid transparent;
+    border-top-color: blue ;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+}
+
+.spinner-triple::before {
+    content: "";
+    border: 5px solid transparent;
+    border-top-color: lightskyblue ;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    animation: spin 2s linear infinite;
+}
+
+.spinner-triple::after {
+    content: "";
+    border: 5px solid transparent;
+    border-top-color: lightblue;
+    border-radius: 50%;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    animation: spin 1s linear infinite;
+}
+
+.spinner-triple>div{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes colorCycle {
+    12.5% {
+        border-top: 5px solid #FF0000;
+    }
+    25% {
+        border-top: 5px solid #FFA500;
+    }
+    37.5% {
+        border-top: 5px solid #FFFF00;
+    }
+    50% {
+        border-top: 5px solid #7FFF00;
+    }
+    62.5% {
+        border-top: 5px solid #00FFFF;
+    }
+    75% {
+        border-top: 5px solid #0000FF;
+    }
+    87.5% {
+        border-top: 5px solid #9932CC;
+    }
+    100% {
+        border-top: 5px solid #FF1493;
+    }
+  }
