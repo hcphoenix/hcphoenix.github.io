@@ -78,17 +78,32 @@ const button = document.querySelector("#button");
 const icon = document.querySelector("#button > i");
 const audio = document.querySelector("audio");
 
-button.addEventListener("click", () => {
-  if (audio.paused) {
-    audio.volume = 0.9;
-    audio.play();
+var btnMuted = false;
+const muteBtn = () => {
     icon.classList.remove('fa-volume-up');
     icon.classList.add('fa-volume-off');
-    
-  } else {
-    audio.pause();
+    btnMuted = true;
+};
+
+const unmuteBtn = () => {
     icon.classList.remove('fa-volume-off');
     icon.classList.add('fa-volume-up');
+    btnMuted = false;
+}
+button.addEventListener("click", () => {
+  if (audio.paused) {
+    audio.volume = 0.05;
+    audio.play();
+    muteBtn();
+    
+  } else {
+    //audio.pause();
+    audio.volume += 0.05;
+    if(btnMuted) {
+        unmuteBtn();
+    } else {
+        muteBtn();
+    }
   }
   button.classList.add("fade");
 });
@@ -101,11 +116,12 @@ button.addEventListener("click", () => {
     banner.classList.add('banished');
    
     if (audio.paused) {
-      audio.volume = 0.9;
+      audio.volume = 0.05;
       audio.play();
-      icon.classList.remove('fa-volume-up');
-      icon.classList.add('fa-volume-off');
+      muteBtn();
     }
+
+    button.classList.add("fade");
 }));
 </script>
 
