@@ -92,6 +92,21 @@ button.addEventListener("click", () => {
   }
   button.classList.add("fade");
 });
+  
+  const cookieBtns = document.querySelectorAll(".cookie-consent-banner__cta");
+  
+  const banner = document.querySelector(".cookie-consent-banner");
+  
+  cookieBtns.forEach(btn => btn.addEventListener("click", () => {
+    banner.classList.add('banished');
+   
+    if (audio.paused) {
+      audio.volume = 0.9;
+      audio.play();
+      icon.classList.remove('fa-volume-up');
+      icon.classList.add('fa-volume-off');
+    }
+}));
 </script>
 
 </body>
